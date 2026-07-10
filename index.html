@@ -63,6 +63,11 @@
   .lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:44px;cursor:pointer;padding:10px 18px;-webkit-user-select:none;user-select:none;opacity:.7;} .lb .nav:hover{opacity:1;} .lb .prev{left:6px;} .lb .next{right:6px;}
   .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
   @media(max-width:640px){main{padding:24px 14px 70px;} h1{font-size:25px;} .hero{padding:30px 22px;} .hero h1{font-size:30px;} .tscroll table{min-width:560px;} .gal{grid-template-columns:1fr 1fr;} .gcard img{height:130px;}}
+  .spin{position:relative;overflow:hidden;padding:0;cursor:grab;-webkit-user-select:none;user-select:none;background:#fff;border-radius:14px;max-width:900px;margin:0 auto;}
+  .spin:active{cursor:grabbing;} .spin img{width:100%;display:block;pointer-events:none;-webkit-user-drag:none;}
+  .spinhint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12.5px;color:var(--grey);pointer-events:none;}
+  .spinauto{position:absolute;top:14px;right:14px;background:var(--ink);color:#fff;border:0;width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;transition:.2s;}
+  .spinauto.on{background:var(--accent-d);} .spinbadge{position:absolute;top:14px;left:14px;background:rgba(26,26,28,.8);color:#fff;font-size:11px;font-weight:800;letter-spacing:.5px;padding:4px 9px;border-radius:5px;}
   footer{border-top:1px solid var(--hair);color:var(--grey);font-size:12.5px;text-align:center;padding:26px;}
 </style>
 </head>
@@ -80,6 +85,7 @@
     <button data-t="pranchas">Pranchas</button>
     <button data-t="marcenaria">Marcenaria</button>
     <button data-t="perspectivas">Perspectivas</button>
+    <button data-t="tresd">3D</button>
   </nav>
 </header>
 <main>
@@ -218,6 +224,17 @@
   <div class="gal persp" id="galPersp"></div>
 </section>
 
+<section class="tab" id="tresd">
+  <h1>3D — Vista sem laje</h1><div class="lead">Arraste na horizontal para girar o apartamento (vista "casa de bonecas", sem o teto). Apenas para visualização.</div>
+  <div class="spin card" id="spin">
+    <span class="spinbadge">SEM LAJE · 360°</span>
+    <img id="spinImg" src="assets/3d/frame_00.jpg" alt="Vista 3D do apartamento">
+    <button class="spinauto" id="spinauto" type="button" title="Girar automaticamente">⟳</button>
+    <div class="spinhint">↔ arraste para girar</div>
+  </div>
+  <div class="note" style="max-width:900px;margin:14px auto;">Modelo gerado a partir do projeto SketchUp (LAYOUT), com a laje/teto removida para visualização dos ambientes e da marcenaria. Imagem de referência — não substitui as pranchas técnicas.</div>
+</section>
+
 </main>
 <div class="lb" id="lb"><span class="cl" onclick="closeLb()">×</span><span class="nav prev" onclick="stepLb(-1,event)">‹</span><img id="lbImg" src="" alt=""><span class="nav next" onclick="stepLb(1,event)">›</span><div class="cap" id="lbCap"></div></div>
 <footer>STUDIO FARHAT ARQUITETURA · Caderno Executivo — Reforma Ana e Nader · R00</footer>
@@ -257,6 +274,24 @@ lbEl.addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
 document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('on'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')stepLb(1);if(e.key==='ArrowLeft')stepLb(-1);});
 let _tx=0,_ty=0;lbEl.addEventListener('touchstart',e=>{_tx=e.changedTouches[0].clientX;_ty=e.changedTouches[0].clientY;},{passive:true});
 lbEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-_tx,dy=e.changedTouches[0].clientY-_ty;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))stepLb(dx<0?1:-1);},{passive:true});
+// 3D spinner
+const N3D=24; let cur3d=0, dragging=false, startX=0, startI=0, auto3d=null;
+const spinImg=document.getElementById('spinImg'), spin=document.getElementById('spin');
+const imgs3d=[]; for(let i=0;i<N3D;i++){const im=new Image();im.src=`assets/3d/frame_${String(i).padStart(2,'0')}.jpg`;imgs3d.push(im);}
+function show3d(i){cur3d=((i%N3D)+N3D)%N3D;spinImg.src=imgs3d[cur3d].src;}
+function startAuto(){if(auto3d)return;auto3d=setInterval(()=>show3d(cur3d+1),110);document.getElementById('spinauto').classList.add('on');}
+function stopAuto(){if(auto3d){clearInterval(auto3d);auto3d=null;document.getElementById('spinauto').classList.remove('on');}}
+function dStart(x){dragging=true;startX=x;startI=cur3d;stopAuto();}
+function dMove(x){if(!dragging)return;const step=Math.round((x-startX)/(spin.clientWidth/N3D)*1.1);show3d(startI-step);}
+function dEnd(){dragging=false;}
+spin.addEventListener('mousedown',e=>{dStart(e.clientX);e.preventDefault();});
+window.addEventListener('mousemove',e=>dMove(e.clientX));
+window.addEventListener('mouseup',dEnd);
+spin.addEventListener('touchstart',e=>dStart(e.touches[0].clientX),{passive:true});
+spin.addEventListener('touchmove',e=>{if(dragging){dMove(e.touches[0].clientX);e.preventDefault();}},{passive:false});
+spin.addEventListener('touchend',dEnd);
+document.getElementById('spinauto').onclick=()=>{auto3d?stopAuto():startAuto();};
+
 function activate(t,scroll){const b=document.querySelector(`#nav button[data-t="${t}"]`);if(!b)return;
   document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');document.getElementById(t).classList.add('on');history.replaceState(null,'','#'+t);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}
