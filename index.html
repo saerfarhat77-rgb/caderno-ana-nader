@@ -5,93 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Caderno Executivo — Reforma Ana e Nader | Studio Farhat</title>
 <style>
-  :root{
-    --ink:#1a1a1c; --grey:#6b6b70; --accent:#9e7d3d; --accent-d:#83672f;
-    --hair:#e2e0da; --bg:#faf9f6; --card:#ffffff; --soft:#f4f2ec;
-  }
+  :root{--ink:#1a1a1c;--grey:#6b6b70;--accent:#9e7d3d;--accent-d:#83672f;--hair:#e2e0da;--bg:#faf9f6;--card:#fff;--soft:#f4f2ec;}
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:"Helvetica Neue",-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;}
   a{color:var(--accent-d);}
-  /* top bar */
-  header{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair);}
-  .bar{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-  .brand b{font-size:19px;letter-spacing:.5px;font-weight:800;}
-  .brand span{font-size:10px;letter-spacing:3px;color:var(--grey);margin-left:6px;}
+  header{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.93);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair);}
+  .bar{max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .brand b{font-size:19px;letter-spacing:.5px;font-weight:800;}.brand span{font-size:10px;letter-spacing:3px;color:var(--grey);margin-left:6px;}
   .brand .tick{width:46px;height:3px;background:var(--accent);margin-top:5px;}
   .dl{font-size:12.5px;text-decoration:none;color:#fff;background:var(--ink);padding:9px 16px;border-radius:6px;letter-spacing:.3px;white-space:nowrap;transition:.2s;}
   .dl:hover{background:var(--accent-d);}
-  /* tabs */
-  nav{max-width:1180px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  nav{max-width:1240px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   nav::-webkit-scrollbar{display:none;}
-  nav button{border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--grey);padding:14px 18px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:.15s;letter-spacing:.2px;}
-  nav button:hover{color:var(--ink);}
-  nav button.on{color:var(--ink);border-bottom-color:var(--accent);}
-  /* layout */
-  main{max-width:1180px;margin:0 auto;padding:38px 24px 90px;}
-  .tab{display:none;animation:fade .35s ease;}
-  .tab.on{display:block;}
+  nav button{border:0;background:none;font:inherit;font-size:14px;font-weight:600;color:var(--grey);padding:14px 16px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:.15s;}
+  nav button:hover{color:var(--ink);} nav button.on{color:var(--ink);border-bottom-color:var(--accent);}
+  main{max-width:1240px;margin:0 auto;padding:36px 24px 90px;}
+  .tab{display:none;animation:fade .35s ease;} .tab.on{display:block;}
   @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
-  h1{font-size:34px;font-weight:800;letter-spacing:.2px;}
-  h1+.lead{color:var(--grey);font-size:15.5px;margin-top:6px;margin-bottom:26px;}
-  h2{font-size:15px;color:var(--accent-d);font-weight:800;text-transform:uppercase;letter-spacing:1px;margin:30px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--hair);}
-  h3{font-size:17px;font-weight:800;margin:20px 0 4px;}
-  p{margin:9px 0;} ul{margin:8px 0 12px 20px;} li{margin:5px 0;}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;}
-  @media(max-width:820px){.grid{grid-template-columns:1fr;}}
-  @media(max-width:640px){
-    main{padding:24px 14px 70px;}
-    .bar{padding:12px 14px;} .brand b{font-size:16px;} .dl{font-size:11.5px;padding:8px 12px;}
-    nav button{font-size:13px;padding:12px 13px;}
-    h1{font-size:26px;} .hero{padding:32px 22px;border-radius:14px;} .hero h1{font-size:32px;}
-    .card{padding:18px 16px;}
-    table{font-size:12.5px;} th{padding:9px 9px;font-size:10.5px;} td{padding:8px 9px;}
-    .prest{font-size:17px;}
-    .gal{grid-template-columns:1fr;gap:13px;} .gcard img{height:210px;} .persp .gcard img{height:210px;}
-    .lb .nav{font-size:38px;padding:8px 12px;} .lb .cl{font-size:30px;top:12px;right:16px;}
-  }
-  @media(hover:none){ .gcard:active{transform:scale(.99);} }
-  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .tscroll table{margin-top:0;margin-bottom:0;}
-  @media(max-width:640px){ .tscroll{margin:10px 0 20px;} .tscroll table{min-width:520px;} }
-  .card{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:22px 26px;}
+  h1{font-size:32px;font-weight:800;} h1+.lead{color:var(--grey);font-size:15px;margin-top:6px;margin-bottom:24px;}
+  h2{font-size:14px;color:var(--accent-d);font-weight:800;text-transform:uppercase;letter-spacing:1px;margin:28px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--hair);}
+  h3{font-size:16px;font-weight:800;margin:16px 0 4px;}
+  p{margin:8px 0;} ul{margin:8px 0 12px 20px;} li{margin:5px 0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;} .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px 26px;}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:20px 24px;}
   .note{background:var(--soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;margin:14px 0;}
-  /* hero */
-  .hero{background:var(--ink);color:#fff;border-radius:18px;padding:52px 46px;position:relative;overflow:hidden;}
-  .hero .tick{width:64px;height:4px;background:var(--accent);margin-bottom:22px;}
-  .hero h1{font-size:44px;color:#fff;line-height:1.05;}
-  .hero p{color:#c9c7c1;font-size:16px;max-width:640px;}
-  .facts{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
-  .fact{background:#ffffff;border:1px solid var(--hair);border-radius:12px;padding:16px 20px;min-width:120px;flex:1;}
-  .fact b{display:block;font-size:26px;color:var(--accent-d);}
-  .fact span{font-size:12px;color:var(--grey);letter-spacing:.4px;}
-  /* tables */
-  table{width:100%;border-collapse:collapse;margin:10px 0 20px;font-size:14px;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 1px 0 var(--hair);}
-  th{background:var(--ink);color:#fff;text-align:left;padding:11px 14px;font-size:12px;font-weight:700;letter-spacing:.4px;}
-  td{padding:10px 14px;border-bottom:1px solid var(--hair);}
-  tr:last-child td{border-bottom:0;}
-  tbody tr:nth-child(even) td{background:var(--soft);}
-  td.n,th.n{text-align:right;}
-  .tot td{font-weight:800;background:#efece3 !important;border-top:2px solid var(--ink);}
-  .tempo{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:12px;padding:2px 9px;border-radius:20px;letter-spacing:.4px;}
-  .prest{display:flex;align-items:center;gap:8px;margin-top:18px;font-size:19px;font-weight:800;}
+  .hero{background:var(--ink);color:#fff;border-radius:18px;padding:48px 44px;}
+  .hero .tick{width:64px;height:4px;background:var(--accent);margin-bottom:20px;} .hero h1{font-size:42px;color:#fff;line-height:1.05;} .hero p{color:#c9c7c1;font-size:16px;max-width:680px;}
+  table{width:100%;border-collapse:collapse;margin:10px 0 20px;font-size:14px;background:var(--card);border-radius:10px;overflow:hidden;}
+  th{background:var(--ink);color:#fff;text-align:left;padding:11px 14px;font-size:12px;font-weight:700;} td{padding:10px 14px;border-bottom:1px solid var(--hair);} tr:last-child td{border-bottom:0;}
+  tbody tr:nth-child(even) td{background:var(--soft);} td.n,th.n{text-align:right;} .tot td{font-weight:800;background:#efece3 !important;border-top:2px solid var(--ink);}
+  .code{font-family:"Courier New",monospace;font-weight:700;color:var(--accent-d);}
+  .tempo{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:12px;padding:2px 9px;border-radius:20px;} .prest{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:18px;font-weight:800;}
+  /* swatches */
+  .sw{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
+  .scard{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+  .chip{height:110px;border-bottom:1px solid var(--hair);position:relative;}
+  .scard .cc{padding:12px 14px;} .scard .cc .t{font-size:15px;font-weight:800;line-height:1.15;} .scard .cc .s{font-size:12.5px;color:var(--grey);margin-top:2px;}
+  .scard .cc .q{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--accent-d);background:var(--soft);padding:2px 9px;border-radius:12px;}
+  .slim{position:absolute;top:8px;right:8px;background:rgba(26,26,28,.82);color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px;padding:3px 7px;border-radius:4px;}
+  .t-porc{background:linear-gradient(135deg,#efe9e0,#e6ddd0 60%,#ded3c4);} .t-vinil{background:repeating-linear-gradient(90deg,#b98a56,#b98a56 4px,#b0814d 4px,#b0814d 8px);} .t-cimento{background:linear-gradient(135deg,#e7e4dd,#d8d4cb 55%,#c9c5bb);}
+  .t-frost{background:linear-gradient(135deg,#eef0f1,#dfe4e6 60%,#d2d8da);} .t-bright{background:linear-gradient(135deg,#f2efe9,#e7e2d8 60%,#dcd6c9);}
+  .t-quartzo{background:radial-gradient(120% 80% at 30% 20%,#fbfbfa,#f0efe9 70%,#e7e5dd);} .t-pitaya{background:radial-gradient(120% 90% at 60% 30%,#fbf9f4,#efeadf 65%,#e3dccb);}
+  .t-azul{background:linear-gradient(135deg,#4a6b78,#3c5761 60%,#33505a);} .t-branco{background:linear-gradient(135deg,#fbfbf9,#f1f0ec 70%,#e9e8e2);} .t-cumaru{background:repeating-linear-gradient(88deg,#8a5e39,#8a5e39 6px,#7e5432 6px,#7e5432 12px);} .t-jalapao{background:linear-gradient(135deg,#b56a4b,#a85a3d 60%,#984e33);}
+  .t-neve{background:linear-gradient(135deg,#fdfdfc,#f6f6f3);} .t-trigo{background:linear-gradient(135deg,#e9e2d2,#ddd3bd 60%,#d0c4a9);}
   /* galleries */
-  .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:8px;}
+  .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:8px;}
   .gcard{background:var(--card);border:1px solid var(--hair);border-radius:12px;overflow:hidden;cursor:pointer;transition:.18s;}
-  .gcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.10);}
-  .gcard img{width:100%;height:190px;object-fit:cover;display:block;background:#eee;}
-  .gcard .cap{padding:11px 14px;}
-  .gcard .cap b{font-size:14px;} .gcard .cap span{display:block;font-size:12px;color:var(--grey);margin-top:1px;}
-  .gtag{font-size:11px;font-weight:800;color:var(--accent-d);letter-spacing:.6px;}
+  .gcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.10);} .gcard img{width:100%;height:180px;object-fit:cover;object-position:center;display:block;background:#eee;}
+  .gcard .cap{padding:10px 13px;} .gcard .cap b{font-size:13.5px;} .gcard .cap span{display:block;font-size:12px;color:var(--grey);margin-top:1px;} .gtag{font-size:11px;font-weight:800;color:var(--accent-d);letter-spacing:.5px;}
   .persp .gcard img{height:230px;}
-  /* lightbox */
+  .grouptitle{font-size:13px;font-weight:800;letter-spacing:.5px;color:var(--grey);text-transform:uppercase;margin:22px 0 10px;}
   .lb{position:fixed;inset:0;background:rgba(15,15,17,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;}
-  .lb.on{display:flex;}
-  .lb img{max-width:96vw;max-height:88vh;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
-  .lb .cl{position:absolute;top:18px;right:26px;color:#fff;font-size:34px;cursor:pointer;line-height:1;}
-  .lb .cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-size:15px;letter-spacing:.4px;}
-  .lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:44px;cursor:pointer;padding:10px 18px;-webkit-user-select:none;user-select:none;opacity:.7;}
-  .lb .nav:hover{opacity:1;} .lb .prev{left:8px;} .lb .next{right:8px;}
+  .lb.on{display:flex;} .lb img{max-width:96vw;max-height:88vh;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .lb .cl{position:absolute;top:16px;right:24px;color:#fff;font-size:34px;cursor:pointer;} .lb .cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#fff;font-size:15px;}
+  .lb .nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:44px;cursor:pointer;padding:10px 18px;-webkit-user-select:none;user-select:none;opacity:.7;} .lb .nav:hover{opacity:1;} .lb .prev{left:6px;} .lb .next{right:6px;}
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  @media(max-width:640px){main{padding:24px 14px 70px;} h1{font-size:25px;} .hero{padding:30px 22px;} .hero h1{font-size:30px;} .tscroll table{min-width:560px;} .gal{grid-template-columns:1fr 1fr;} .gcard img{height:130px;}}
   footer{border-top:1px solid var(--hair);color:var(--grey);font-size:12.5px;text-align:center;padding:26px;}
 </style>
 </head>
@@ -99,301 +70,197 @@
 <header>
   <div class="bar">
     <div class="brand"><div><b>STUDIO FARHAT</b><span>ARQUITETURA</span></div><div class="tick"></div></div>
-    <a class="dl" href="caderno-executivo-ana-nader.pdf" target="_blank">⬇ Baixar caderno completo (PDF · A2)</a>
+    <a class="dl" href="caderno-executivo-ana-nader.pdf" target="_blank">⬇ Baixar caderno completo (PDF)</a>
   </div>
   <nav id="nav">
     <button class="on" data-t="inicio">Início</button>
-    <button data-t="memorial">Memorial</button>
-    <button data-t="servicos">Serviços</button>
     <button data-t="materiais">Materiais</button>
+    <button data-t="servicos">Serviços</button>
+    <button data-t="detalhamento">Detalhamento</button>
     <button data-t="pranchas">Pranchas</button>
+    <button data-t="marcenaria">Marcenaria</button>
     <button data-t="perspectivas">Perspectivas</button>
   </nav>
 </header>
-
 <main>
 
-<!-- ===== INÍCIO ===== -->
 <section class="tab on" id="inicio">
-  <div class="hero">
-    <div class="tick"></div>
-    <h1>Caderno Executivo</h1>
-    <p style="margin-top:10px">Reforma de Apartamento — <b style="color:#fff">Ana e Nader</b>.<br>Documento de obra reunindo memorial, sequenciamento de serviços, quantitativos, pranchas técnicas e perspectivas finais.</p>
-  </div>
-  <div class="grid" style="margin-top:34px">
-    <div class="card">
-      <h3>Como navegar</h3>
-      <p>Use as abas acima para ver cada assunto. Tudo aqui é um resumo navegável do caderno; o <a href="caderno-executivo-ana-nader.pdf" target="_blank">PDF completo em A2</a> traz as pranchas em escala para impressão.</p>
-      <ul>
-        <li><b>Memorial</b> — descrição técnica de cada serviço.</li>
-        <li><b>Serviços</b> — ordem de execução por têmpora e contratações.</li>
-        <li><b>Materiais</b> — quantitativos para orçamento.</li>
-        <li><b>Pranchas</b> — desenhos técnicos (clique para ampliar).</li>
-        <li><b>Perspectivas</b> — imagens finais dos ambientes.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Dados da obra</h3>
-      <table style="box-shadow:none;margin:6px 0 0">
-        <tr><td style="width:45%"><b>Obra</b></td><td>Reforma — Ap. Ana e Nader</td></tr>
-        <tr><td><b>Responsável técnico</b></td><td>Arq. Saer Farhat</td></tr>
-        <tr><td><b>Escritório</b></td><td>Studio Farhat Arquitetura</td></tr>
-        <tr><td><b>Revisão</b></td><td>R00 · 01/07/2026</td></tr>
-      </table>
-    </div>
+  <div class="hero"><div class="tick"></div><h1>Caderno Executivo</h1>
+    <p style="margin-top:10px">Reforma de Apartamento — <b style="color:#fff">Ana e Nader</b>.<br>Projeto executivo completo: arquitetura, bancadas, elétrica, marcenaria e materiais.</p></div>
+  <div class="grid2" style="margin-top:30px">
+    <div class="card"><h3>Como navegar</h3>
+      <p>Use as abas para ver cada assunto. O <a href="caderno-executivo-ana-nader.pdf" target="_blank">PDF completo</a> traz as 39 pranchas em escala (A3; a elétrica em A2).</p>
+      <ul><li><b>Materiais</b> — dashboard de pisos, pedras, MDFs, pinturas e metálicos.</li>
+      <li><b>Serviços</b> — sequenciamento por têmpora e contratações.</li>
+      <li><b>Detalhamento</b> — subserviços por etapa.</li>
+      <li><b>Pranchas</b> — desenhos técnicos (clique para ampliar).</li>
+      <li><b>Marcenaria</b> — MDFs, puxadores e móveis.</li>
+      <li><b>Perspectivas</b> — imagens finais.</li></ul></div>
+    <div class="card"><h3>Dados da obra</h3>
+      <table style="box-shadow:none;margin:6px 0 0"><tr><td style="width:42%"><b>Obra</b></td><td>Reforma — Ap. Ana e Nader</td></tr>
+      <tr><td><b>Responsável técnico</b></td><td>Arq. Saer Farhat</td></tr><tr><td><b>Escritório</b></td><td>Studio Farhat Arquitetura</td></tr>
+      <tr><td><b>Pranchas</b></td><td>39 (PR-01…PR-20 · PM-01…PM-18)</td></tr><tr><td><b>Revisão</b></td><td>R00 · 09/07/2026</td></tr></table></div>
   </div>
 </section>
 
-<!-- ===== MEMORIAL ===== -->
-<section class="tab" id="memorial">
-  <h1>Memorial Descritivo</h1><div class="lead">Especificação técnica por serviço.</div>
-  <p>Reforma do apartamento residencial de Ana e Nader. Este memorial descreve os serviços, materiais e critérios de execução previstos no projeto executivo, servindo de referência para orçamento, contratação e acompanhamento de obra. As dimensões seguem o projeto arquitetônico; <b>cotas prevalecem sobre a escala gráfica</b>.</p>
-  <div class="grid">
-    <div>
-      <h2>1 · Serviços Preliminares e Demolições</h2>
-      <ul>
-        <li>Demolição de pisos cerâmicos existentes — aprox. <b>11,8 m²</b>.</li>
-        <li>Remoção de 5 bancadas de granito e tanque.</li>
-        <li>Remoção de porta de vidro.</li>
-        <li><b>Corte/abertura na parede de drywall</b> (~5,67 m²), executado pelo gesseiro, integrado à demolição, preservando o cabeamento existente.</li>
-      </ul>
-      <div class="note">Os pisos que servirão de base para o vinílico devem ser demolidos/regularizados mantendo nível compatível com as soleiras.</div>
-      <h2>2 · Alvenaria e Bases</h2>
-      <ul>
-        <li>Base em alvenaria (h = 10 cm) na divisa cozinha / estar-jantar, com frente revestida com o mesmo revestimento do piso.</li>
-        <li>Requadro das aberturas de porta e da abertura de drywall.</li>
-        <li><b>Contrapiso / regularização</b> executado nesta mesma etapa (pedreiro).</li>
-      </ul>
-      <h2>3 · Forro de Gesso e Sancas</h2>
-      <ul>
-        <li>O gesseiro <b>retorna após a demolição</b> para instalar o forro de gesso e as duas sancas (3,23 + 5,95 m²).</li>
-        <li>Sanca com calha de LED tipo "U", driver embutido, pintura interna branca.</li>
-      </ul>
-      <div class="note"><b>Sequenciamento:</b> o LED é instalado <b>pela abertura da sanca</b>, sem retorno do gesseiro para arremate. O gesseiro atua em duas têmporas: corte do drywall (demolição) e forro/sanca.</div>
-    </div>
-    <div>
-      <h2>4 · Pisos</h2>
-      <ul>
-        <li>Porcelanato 100×120 — <b>37,00 m²</b>.</li>
-        <li>Piso vinílico madeira (a definir) — <b>27,00 m²</b>.</li>
-        <li>Cimento queimado off white — <b>56,00 m²</b>.</li>
-      </ul>
-      <h2>5 · Revestimentos de Parede</h2>
-      <ul>
-        <li>Banhos: Portobello Rimini Frost 9,5×23 — <b>16,00 m²</b>; Strufaldi Rimini Bright 6×24 — <b>11,00 m²</b>.</li>
-        <li>Frente da base de alvenaria com o mesmo material do piso.</li>
-      </ul>
-      <h2>6 · Bancadas de Granito</h2>
-      <p>Cinco bancadas, área total de tampos ≈ <b>3,60 m²</b> (ver aba Materiais).</p>
-      <h2>7 · Pintura</h2>
-      <ul>
-        <li>Branco neve — 99 m²; Tinta Trigo (Duvmil) — 77 m²; Cimento queimado — 56 m².</li>
-      </ul>
-      <h2>8 · Instalações Elétricas</h2>
-      <ul>
-        <li>Adaptação do cabeamento para a marcenaria.</li>
-        <li><b>Infra (T3):</b> cabeamento para as sancas e distribuição de luz dos quartos com <b>fita de cobre colada na laje (teto)</b>.</li>
-        <li><b>Retorno (T10):</b> após pintura e marcenaria — LED das sancas e luminárias, tomadas e interruptores na marcenaria (se o marceneiro não fizer o acabamento elétrico).</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SERVIÇOS ===== -->
-<section class="tab" id="servicos">
-  <h1>Serviços</h1><div class="lead">Ordem de execução por têmpora e escopo de contratação por prestador.</div>
-  <div class="note"><b>O que é têmpora?</b> Cada fase da obra. O princípio central: um mesmo profissional pode voltar em têmporas diferentes. Ex.: o <b>gesseiro corta o drywall na demolição (T1)</b> e <b>retorna para o forro e as sancas (T4)</b>. Isso vira duas etapas no contrato, com medição por etapa.</div>
-  <h2>Linha de execução</h2>
-  <table>
-    <thead><tr><th style="width:80px">Têmpora</th><th>Serviço</th><th>Profissional</th><th style="width:90px">Depende</th></tr></thead>
-    <tbody>
-      <tr><td><span class="tempo">T1</span></td><td>Demolições + <b>corte da parede de drywall</b></td><td>Demolidor + Gesseiro</td><td>—</td></tr>
-      <tr><td><span class="tempo">T2</span></td><td>Base de alvenaria + requadros + <b>contrapiso / regularização</b></td><td>Pedreiro</td><td>T1</td></tr>
-      <tr><td><span class="tempo">T3</span></td><td>Elétrica (infra): cabeamento p/ sancas + <b>luz dos quartos com fita de cobre colada na laje</b></td><td>Eletricista</td><td>T2</td></tr>
-      <tr><td><span class="tempo">T4</span></td><td>Gesso — <b>forro e sancas</b> (retorno do gesseiro)</td><td>Gesseiro</td><td>T3</td></tr>
-      <tr><td><span class="tempo">T5</span></td><td><b>Assentamento do piso + revestimento de parede</b> (banheiros e cozinha / serviço / varanda)</td><td>Assentador</td><td>T4</td></tr>
-      <tr><td><span class="tempo">T6</span></td><td>Bancadas de granito</td><td>Marmoraria</td><td>T5</td></tr>
-      <tr><td><span class="tempo">T7</span></td><td>Pintura</td><td>Pintor</td><td>T6</td></tr>
-      <tr><td><span class="tempo">T8</span></td><td>Piso vinílico madeira — <b>após as bancadas</b></td><td>Aplicador vinílico</td><td>T7</td></tr>
-      <tr><td><span class="tempo">T9</span></td><td>Marcenaria — <b>Caderno 2</b> (última frente)</td><td>Marceneiro</td><td>T8</td></tr>
-      <tr><td><span class="tempo">T10</span></td><td>Elétrica (retorno): LED + luminárias; tomadas/interruptores na marcenaria</td><td>Eletricista</td><td>T9</td></tr>
-    </tbody>
-  </table>
-  <h2>Retornos (profissionais em mais de uma têmpora)</h2>
-  <table>
-    <thead><tr><th>Profissional</th><th>Têmporas</th><th>Observação</th></tr></thead>
-    <tbody>
-      <tr><td>Gesseiro</td><td>T1 &amp; T4</td><td>Corte do drywall (demolição) e forro/sancas — duas etapas.</td></tr>
-      <tr><td>Eletricista</td><td>T3 &amp; T10</td><td>Infra + fita de cobre na laje; LED, luminárias e acabamento elétrico da marcenaria.</td></tr>
-    </tbody>
-  </table>
-  <h2>Contratações — escopo por prestador</h2>
-  <div class="grid">
-    <div>
-      <div class="prest"><span class="tempo">T1</span> Demolidor</div>
-      <ul><li>Demolição de pisos (~11,8 m²), remoção de 5 bancadas, tanque e porta de vidro. Retirada de entulho.</li></ul>
-      <div class="prest"><span class="tempo">T1</span><span class="tempo">T4</span> Gesseiro</div>
-      <ul><li><b>Etapa 1 (T1):</b> corte/abertura do drywall (~5,67 m²) junto à demolição.</li><li><b>Etapa 2 (T4):</b> forro e duas sancas (3,23 + 5,95 m²).</li></ul>
-      <div class="prest"><span class="tempo">T2</span> Pedreiro</div>
-      <ul><li>Base de alvenaria, requadros e <b>contrapiso / regularização</b> — tudo na mesma etapa.</li></ul>
-    </div>
-    <div>
-      <div class="prest"><span class="tempo">T3</span><span class="tempo">T10</span> Eletricista</div>
-      <ul><li><b>T3:</b> cabeamento para as sancas + distribuição de luz dos quartos com <b>fita de cobre colada na laje</b>.</li><li><b>T10:</b> após pintura e marcenaria — LED das sancas, luminárias, tomadas e interruptores na marcenaria (se o marceneiro não fizer o acabamento elétrico).</li></ul>
-      <div class="prest"><span class="tempo">T5</span> Assentador</div>
-      <ul><li><b>Assentamento do piso</b> (porcelanato 37 m²) + <b>revestimento de parede</b> — banheiros (Portobello 16 m² + Strufaldi 11 m²) e cozinha / serviço / varanda.</li></ul>
-      <div class="prest"><span class="tempo">T6</span> Marmoraria</div>
-      <ul><li>Fabricação e instalação de 5 bancadas (tampos ≈ 3,60 m²). Conferir medidas in loco.</li></ul>
-      <div class="prest"><span class="tempo">T7</span> Pintor &nbsp;·&nbsp; <span class="tempo">T8</span> Vinílico</div>
-      <ul><li>Pintura (99 + 77 + 56 m²); piso vinílico (27 m²) instalado <b>após as bancadas</b>.</li></ul>
-      <div class="prest"><span class="tempo">T9</span> Marceneiro</div>
-      <ul><li>Marcenaria — última frente; escopo detalhado no <b>Caderno 2 (Executivo de Marcenaria)</b>.</li></ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MATERIAIS ===== -->
 <section class="tab" id="materiais">
-  <h1>Materiais e Quantitativos</h1><div class="lead">Levantamento de referência para orçamento. Conferir medições em obra.</div>
-  <div class="grid">
-    <div>
-      <h2>Acabamentos</h2>
-      <table>
-        <thead><tr><th>Descrição</th><th>Unid.</th><th class="n">Quant.</th></tr></thead>
-        <tbody>
-          <tr><td>Piso porcelanato 100×120 cm</td><td>m²</td><td class="n">37,00</td></tr>
-          <tr><td>Piso vinílico madeira (a definir)</td><td>m²</td><td class="n">27,00</td></tr>
-          <tr><td>Cimento queimado off white</td><td>m²</td><td class="n">56,00</td></tr>
-          <tr><td>Pintura branco neve</td><td>m²</td><td class="n">99,00</td></tr>
-          <tr><td>Tinta Trigo — Duvmil</td><td>m²</td><td class="n">77,00</td></tr>
-          <tr><td>Portobello Rimini Frost 9,5×23</td><td>m²</td><td class="n">16,00</td></tr>
-          <tr><td>Strufaldi Rimini Bright 6×24</td><td>m²</td><td class="n">11,00</td></tr>
-        </tbody>
-      </table>
-      <h2>Alvenaria e Forro</h2>
-      <table>
-        <thead><tr><th>Serviço</th><th>Unid.</th><th class="n">Quant.</th></tr></thead>
-        <tbody>
-          <tr><td>Base de alvenaria h=10 cm</td><td>m</td><td class="n">a medir</td></tr>
-          <tr><td>Forro de gesso</td><td>m²</td><td class="n">a medir</td></tr>
-          <tr><td>Sancas h=2,38 m</td><td>m²</td><td class="n">9,18</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <h2>Bancadas de granito — tampos</h2>
-      <table>
-        <thead><tr><th>Bancada</th><th class="n">L × P (m)</th><th class="n">Área (m²)</th></tr></thead>
-        <tbody>
-          <tr><td>01 · Cozinha</td><td class="n">2,38 × 0,65</td><td class="n">1,55</td></tr>
-          <tr><td>02 · Serviço</td><td class="n">1,26 × 0,50</td><td class="n">0,63</td></tr>
-          <tr><td>03 · Varanda</td><td class="n">1,51 × 0,50</td><td class="n">0,76</td></tr>
-          <tr><td>04 · Banho Social</td><td class="n">0,68 × 0,45</td><td class="n">0,31</td></tr>
-          <tr><td>05 · Banho Suíte</td><td class="n">0,80 × 0,45</td><td class="n">0,36</td></tr>
-          <tr class="tot"><td>Total (5 un)</td><td class="n"></td><td class="n">3,61</td></tr>
-        </tbody>
-      </table>
-      <h2>Demolições</h2>
-      <table>
-        <thead><tr><th>Serviço</th><th>Unid.</th><th class="n">Quant.</th></tr></thead>
-        <tbody>
-          <tr><td>Demolição de piso cerâmico</td><td>m²</td><td class="n">11,80</td></tr>
-          <tr><td>Corte/abertura parede drywall</td><td>m²</td><td class="n">5,67</td></tr>
-          <tr><td>Remoção de bancadas de granito</td><td>un</td><td class="n">5</td></tr>
-          <tr><td>Remoção de tanque</td><td>un</td><td class="n">1</td></tr>
-          <tr><td>Remoção de porta de vidro</td><td>un</td><td class="n">1</td></tr>
-        </tbody>
-      </table>
-      <div class="note">Áreas de bancada calculadas das cotas das pranchas de detalhe (PR-12 a PR-15). Medidas finais a conferir pela marmoraria antes do corte.</div>
-    </div>
+  <h1>Dashboard de Materiais</h1><div class="lead">Especificação visual para orçamento e compra. Amostras de referência — conferir amostra física antes da compra.</div>
+  <h2>Pisos e revestimentos</h2>
+  <div class="sw">
+    <div class="scard"><div class="chip t-porc"></div><div class="cc"><div class="t">Porcelanato 100×120</div><div class="s">Piso — áreas sociais</div><div class="q">37,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-vinil"></div><div class="cc"><div class="t">Vinílico madeira</div><div class="s">Dormitórios · a definir ref.</div><div class="q">27,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-cimento"></div><div class="cc"><div class="t">Cimento queimado</div><div class="s">Off white</div><div class="q">56,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-frost"></div><div class="cc"><div class="t">Portobello Rimini Frost</div><div class="s">Banhos · 9,5×23</div><div class="q">16,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-bright"></div><div class="cc"><div class="t">Strufaldi Rimini Bright</div><div class="s">Banhos · 6×24</div><div class="q">11,00 m²</div></div></div>
+  </div>
+  <h2>Pedras — bancadas · perfil SLIM</h2>
+  <div class="sw">
+    <div class="scard"><div class="chip t-quartzo"><span class="slim">PERFIL SLIM</span></div><div class="cc"><div class="t">Quartzo Branco</div><div class="s">Cozinha · serviço · varanda</div></div></div>
+    <div class="scard"><div class="chip t-pitaya"><span class="slim">PERFIL SLIM</span></div><div class="cc"><div class="t">Branco Pitaya</div><div class="s">Banho social · banho suíte</div></div></div>
+  </div>
+  <h2>MDF — marcenaria</h2>
+  <div class="sw">
+    <div class="scard"><div class="chip t-azul"></div><div class="cc"><div class="t">Azul</div><div class="s">Duratex · Azul Astral</div></div></div>
+    <div class="scard"><div class="chip t-branco"></div><div class="cc"><div class="t">Branco</div><div class="s">Duratex · Branco Diamante Essential</div></div></div>
+    <div class="scard"><div class="chip t-cumaru"></div><div class="cc"><div class="t">Madeirado</div><div class="s">Duratex · Cumaru Raiz</div></div></div>
+    <div class="scard"><div class="chip t-jalapao"></div><div class="cc"><div class="t">Terracota</div><div class="s">Arauco · Jalapão</div></div></div>
+  </div>
+  <div class="note"><b>Puxadores:</b> MDF madeirado → puxador <b>cava</b>. MDF Branco, Azul ou Terracota → puxador <b>metálico preto</b>.</div>
+  <h2>Pinturas</h2>
+  <div class="sw">
+    <div class="scard"><div class="chip t-neve" style="height:70px"></div><div class="cc"><div class="t">Branco Neve</div><div class="q">99,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-trigo" style="height:70px"></div><div class="cc"><div class="t">Trigo · Duvmil</div><div class="q">77,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-cimento" style="height:70px"></div><div class="cc"><div class="t">Cimento queimado</div><div class="q">56,00 m²</div></div></div>
+  </div>
+  <h2>Acabamentos metálicos <span style="color:var(--grey);font-weight:700">(PR-08)</span></h2>
+  <div class="tscroll"><table>
+    <tr><th>Ambiente</th><th>Descrição</th><th>Código</th><th class="n">Qtd</th></tr>
+    <tr><td>Cozinha</td><td>Cuba Tramontina Embutir Dora 50×40</td><td class="code">94018112</td><td class="n">1</td></tr>
+    <tr><td>Coz./Varanda</td><td>Misturador Tramontina Angolare</td><td class="code">94520022</td><td class="n">2</td></tr>
+    <tr><td>Serviço</td><td>Torneira Flexion Wall Tramontina</td><td class="code">94520033</td><td class="n">1</td></tr>
+    <tr><td>Serviço</td><td>Tanque Tramontina Hera 23L inox 40×40 c/ válvula</td><td class="code">94403107</td><td class="n">1</td></tr>
+    <tr><td>Varanda</td><td>Cuba Standard Tramontina 40×34</td><td class="code">94081507</td><td class="n">1</td></tr>
+    <tr><td>Banhos</td><td>Chuveiro tubo parede 20cm Corten Quadrado — Deca</td><td class="code">1992.CT.CT.MT</td><td class="n">2</td></tr>
+    <tr><td>Banhos</td><td>Monocomando chuveiro/banheira Red Gold Level — Deca</td><td class="code">4994.GL26.RD</td><td class="n">2</td></tr>
+    <tr><td>Banhos</td><td>Misturador mesa bica alta Red Gold Level — Deca</td><td class="code">2885.GL26.RD</td><td class="n">2</td></tr>
+    <tr><td>Banhos</td><td>Cuba Deca Oval de Sobrepor Slim</td><td class="code">L.24050.17</td><td class="n">2</td></tr>
+    <tr><td>Banhos</td><td>Ralo Invisível Quadrado 10×10 aço inox</td><td class="code">A DEFINIR</td><td class="n">2</td></tr>
+  </table></div>
+</section>
+
+<section class="tab" id="servicos">
+  <h1>Serviços</h1><div class="lead">Ordem de execução por têmpora e escopo de contratação.</div>
+  <div class="note"><b>Têmpora</b> = fase da obra. Um profissional pode voltar em têmporas diferentes (medição por etapa). Ex.: o gesseiro corta o drywall na demolição (T1) e volta para o forro/sanca (T4).</div>
+  <h2>Linha de execução</h2>
+  <div class="tscroll"><table>
+    <tr><th style="width:70px">Têmpora</th><th>Serviço</th><th>Profissional</th><th style="width:80px">Depende</th></tr>
+    <tr><td><span class="tempo">T1</span></td><td>Demolições + corte da parede de drywall</td><td>Demolidor + Gesseiro</td><td>—</td></tr>
+    <tr><td><span class="tempo">T2</span></td><td>Base de alvenaria + requadros + contrapiso</td><td>Pedreiro</td><td>T1</td></tr>
+    <tr><td><span class="tempo">T3</span></td><td>Elétrica (infra): cabo p/ sancas e marcenaria + fita de cobre na laje</td><td>Eletricista</td><td>T2</td></tr>
+    <tr><td><span class="tempo">T4</span></td><td>Gesso — forro e sancas (retorno do gesseiro)</td><td>Gesseiro</td><td>T3</td></tr>
+    <tr><td><span class="tempo">T5</span></td><td>Assentamento do piso + revestimento de parede</td><td>Assentador</td><td>T4</td></tr>
+    <tr><td><span class="tempo">T6</span></td><td>Bancadas de pedra (Quartzo Branco / Branco Pitaya · slim)</td><td>Marmoraria</td><td>T5</td></tr>
+    <tr><td><span class="tempo">T7</span></td><td>Pintura</td><td>Pintor</td><td>T6</td></tr>
+    <tr><td><span class="tempo">T8</span></td><td>Piso vinílico madeira — após as bancadas</td><td>Aplicador vinílico</td><td>T7</td></tr>
+    <tr><td><span class="tempo">T9</span></td><td>Marcenaria (M01–M10) — última frente</td><td>Marceneiro</td><td>T8</td></tr>
+    <tr><td><span class="tempo">T10</span></td><td>Elétrica (retorno): LED + luminárias; tomadas/interruptores na marcenaria</td><td>Eletricista</td><td>T9</td></tr>
+  </table></div>
+  <div class="note">Retornos: <b>Gesseiro</b> (T1 · T4) · <b>Eletricista</b> (T3 · T10). Marcenaria e LED final fecham a obra.</div>
+  <h2>Contratações — escopo por prestador</h2>
+  <div class="grid3">
+    <div><div class="prest"><span class="tempo">T1</span> Demolidor</div><ul><li>Demolições, remoção de bancadas/tanque/porta, entulho.</li></ul>
+      <div class="prest"><span class="tempo">T1·T4</span> Gesseiro</div><ul><li>Corte do drywall; forro e sancas.</li></ul>
+      <div class="prest"><span class="tempo">T2</span> Pedreiro</div><ul><li>Base, requadros e contrapiso.</li></ul></div>
+    <div><div class="prest"><span class="tempo">T3·T10</span> Eletricista</div><ul><li>Infra + fita de cobre na laje; LED, luminárias e acabamento na marcenaria.</li></ul>
+      <div class="prest"><span class="tempo">T5</span> Assentador</div><ul><li>Piso + revestimento de parede.</li></ul>
+      <div class="prest"><span class="tempo">T6</span> Marmoraria</div><ul><li>Bancadas Quartzo Branco / Branco Pitaya · perfil slim.</li></ul></div>
+    <div><div class="prest"><span class="tempo">T7·T8</span> Pintor · Vinílico</div><ul><li>Pintura; piso vinílico (27 m²) após bancadas.</li></ul>
+      <div class="prest"><span class="tempo">T9</span> Marceneiro</div><ul><li>M01–M10 nos MDFs especificados; puxadores conforme cor.</li></ul></div>
   </div>
 </section>
 
-<!-- ===== PRANCHAS ===== -->
-<section class="tab" id="pranchas">
-  <h1>Pranchas Técnicas</h1><div class="lead">16 pranchas em A2. Clique em qualquer uma para ampliar. <a href="caderno-executivo-ana-nader.pdf" target="_blank">PDF completo em escala →</a></div>
-  <div class="gal" id="galPranchas"></div>
+<section class="tab" id="detalhamento">
+  <h1>Detalhamento de Serviços</h1><div class="lead">Subserviços por etapa — a sequência protege os acabamentos já executados.</div>
+  <div class="grid3">
+    <div class="card"><h3>Banhos</h3><ul><li>Remover o vaso sanitário existente.</li><li>Remover bancada, cuba e metais.</li><li>Impermeabilizar e regularizar.</li><li>Assentar piso e revestimento.</li><li>Reinstalar o vaso após o piso.</li><li>Instalar bancada (Branco Pitaya · slim), cuba e metais.</li><li>Ralo invisível e acabamentos.</li></ul></div>
+    <div class="card"><h3>Cozinha / Serviço / Varanda</h3><ul><li>Remover bancadas e tanque.</li><li>Base de alvenaria e requadros.</li><li>Contrapiso e assentamento do piso.</li><li>Bancadas (Quartzo Branco · slim), cubas e torneiras.</li><li>Marcenaria após pedras e pintura.</li></ul>
+      <h3>Gesso e forro</h3><ul><li>Cortar drywall na demolição.</li><li>Forro e sancas (retorno do gesseiro).</li><li>Deixar abertura da sanca p/ LED.</li></ul></div>
+    <div class="card"><h3>Elétrica</h3><ul><li>Infra p/ sancas e marcenaria.</li><li>Luz dos quartos com fita de cobre na laje.</li><li>Após pintura e marcenaria: LED e luminárias.</li><li>Tomadas e interruptores na marcenaria.</li></ul>
+      <h3>Marcenaria e Pintura</h3><ul><li>Conferir medidas in loco; instalar após pisos/pedras/pintura.</li><li>Puxador cava (madeirado) / metálico preto (demais).</li><li>Pintura antes da marcenaria e do LED.</li></ul></div>
+  </div>
 </section>
 
-<!-- ===== PERSPECTIVAS ===== -->
+<section class="tab" id="pranchas">
+  <h1>Pranchas Técnicas</h1><div class="lead">39 pranchas — clique para ampliar. <a href="caderno-executivo-ana-nader.pdf" target="_blank">PDF em escala →</a></div>
+  <div id="galPranchas"></div>
+</section>
+
+<section class="tab" id="marcenaria">
+  <h1>Marcenaria</h1><div class="lead">18 pranchas (M01–M10). MDF especificado por móvel e regra de puxadores.</div>
+  <h2>MDF especificado</h2>
+  <div class="sw">
+    <div class="scard"><div class="chip t-azul"></div><div class="cc"><div class="t">Azul</div><div class="s">Duratex · Azul Astral</div></div></div>
+    <div class="scard"><div class="chip t-branco"></div><div class="cc"><div class="t">Branco</div><div class="s">Duratex · Branco Diamante Essential</div></div></div>
+    <div class="scard"><div class="chip t-cumaru"></div><div class="cc"><div class="t">Madeirado</div><div class="s">Duratex · Cumaru Raiz</div></div></div>
+    <div class="scard"><div class="chip t-jalapao"></div><div class="cc"><div class="t">Terracota</div><div class="s">Arauco · Jalapão</div></div></div>
+  </div>
+  <div class="note"><b>Puxadores:</b> madeirado → <b>cava</b>; Branco, Azul ou Terracota → <b>metálico preto</b>.</div>
+  <h2>Móveis</h2>
+  <div class="grid3">
+    <div><ul><li><b>M01</b> — Cozinha (PM-02, PM-03)</li><li><b>M02</b> — Balcão / armário (PM-04)</li><li><b>M03</b> — Armário serviço (PM-05)</li><li><b>M04</b> — Armário varanda (PM-06)</li></ul></div>
+    <div><ul><li><b>M05</b> — Banco em L (PM-07)</li><li><b>M06</b> — Aparador / escrivaninha / guarda-roupas (PM-08 a PM-10)</li><li><b>M07</b> — Guarda-roupa quarto (PM-11 a PM-13)</li></ul></div>
+    <div><ul><li><b>M08</b> — Guarda-roupa suíte (PM-14, PM-15)</li><li><b>M09</b> — Cabeceira (PM-16)</li><li><b>M10</b> — Gabinetes lavabo e suíte (PM-17, PM-18)</li></ul></div>
+  </div>
+</section>
+
 <section class="tab" id="perspectivas">
   <h1>Perspectivas — Imagens Finais</h1><div class="lead">Clique para ampliar.</div>
   <div class="gal persp" id="galPersp"></div>
 </section>
 
 </main>
-
-<div class="lb" id="lb">
-  <span class="cl" onclick="closeLb()">×</span>
-  <span class="nav prev" onclick="stepLb(-1,event)">‹</span>
-  <img id="lbImg" src="" alt="">
-  <span class="nav next" onclick="stepLb(1,event)">›</span>
-  <div class="cap" id="lbCap"></div>
-</div>
-
-<footer>STUDIO FARHAT ARQUITETURA &nbsp;·&nbsp; Caderno Executivo — Reforma Ana e Nader &nbsp;·&nbsp; R00</footer>
-
+<div class="lb" id="lb"><span class="cl" onclick="closeLb()">×</span><span class="nav prev" onclick="stepLb(-1,event)">‹</span><img id="lbImg" src="" alt=""><span class="nav next" onclick="stepLb(1,event)">›</span><div class="cap" id="lbCap"></div></div>
+<footer>STUDIO FARHAT ARQUITETURA · Caderno Executivo — Reforma Ana e Nader · R00</footer>
 <script>
-// data
-const PRANCHAS=[
- ["PR-01","Planta baixa — a demolir","Demolições"],["PR-02","Corte A — a demolir","Demolições"],
- ["PR-03","Corte B — a demolir","Demolições"],["PR-04","Perspectiva 3D — a demolir","Demolições"],
- ["PR-05","3D wireframe — a demolir","Demolições"],["PR-06","Base de alvenaria — a construir","Alvenaria"],
- ["PR-06B","Base de alvenaria — detalhe","Detalhamento"],["PR-07","Plano de forro e sancas","Forro & Gesso"],
- ["PR-08","Paginação de pisos","Revestimentos"],["PR-09","Revestimentos de parede — 1","Revestimentos"],
- ["PR-10","Revestimentos de parede — 2","Revestimentos"],["PR-11","Bancadas em granito — geral","Marcenaria & Granito"],
- ["PR-12","Bancada — cozinha","Marcenaria & Granito"],["PR-13","Bancada — área de serviço","Marcenaria & Granito"],
- ["PR-14","Bancada — varanda","Marcenaria & Granito"],["PR-15","Bancada — banho social","Marcenaria & Granito"]];
-const PERSP=[
- ["cozinha-jantar.jpg","Cozinha / Jantar","Área social"],["sala-tv-sanca.jpg","Estar / Sala de TV","Sanca com LED"],
- ["home-office-02.jpg","Home Office","Marcenaria"],["quarto-hospedes.jpg","Quarto de Hóspedes","Dormitório"],
- ["quarto-suite.jpg","Suíte","Dormitório"],["banheiro-social.jpg","Banho Social","Revestimentos"],
- ["banheiro-suite.jpg","Banho da Suíte","Revestimentos"]];
-
-// build galleries
-let LB=[], lbIdx=0;
-function gcard(src,tag,title,sub,list){
-  const d=document.createElement('div'); d.className='gcard';
-  d.innerHTML=`<img loading="lazy" src="${src}"><div class="cap"><span class="gtag">${tag}</span><b>${title}</b><span>${sub}</span></div>`;
-  const idx=list.length; list.push([src,`${title} — ${sub}`]);
-  d.onclick=()=>openLb(list,idx); return d;
-}
+const PR_GROUPS=[
+ ["Demolição",[["PR-01","Planta a demolir"],["PR-02","Corte A"],["PR-03","Corte B"],["PR-04","Perspectiva 3D"],["PR-05","3D wireframe"]]],
+ ["Base de alvenaria",[["PR-06","Base a construir"]]],
+ ["Bancadas · perfil slim",[["PR-07","Planta geral"],["PR-08","Cozinha + hidráulica"],["PR-09","Serviço"],["PR-10","Varanda"],["PR-11","Banhos"]]],
+ ["Forro · Pisos · Revestimento",[["PR-12","Forro e sancas"],["PR-13","Paginação de pisos"],["PR-14","Revestimento 1"],["PR-14B","Revestimento 2"]]],
+ ["Elétrica",[["PR-15","Planta elétrica (A2)"],["PR-16","Detalhe elétrico 1"],["PR-17","Detalhe elétrico 2"],["PR-18","Detalhe elétrico 3"],["PR-19","Detalhe elétrico 4"],["PR-20","Detalhe elétrico 5"]]],
+ ["Marcenaria",[["PM-01","Planta indicativa"],["PM-02","M01 Cozinha"],["PM-03","M01 Cozinha"],["PM-04","M02 Balcão/armário"],["PM-05","M03 Armário serviço"],["PM-06","M04 Armário varanda"],["PM-07","M05 Banco em L"],["PM-08","M06 Aparador/escriv."],["PM-09","M06 Aparador/escriv."],["PM-10","M06 Aparador/escriv."],["PM-11","M07 Guarda-roupa quarto"],["PM-12","M07 Guarda-roupa quarto"],["PM-13","M07 Guarda-roupa quarto"],["PM-14","M08 Guarda-roupa suíte"],["PM-15","M08 Guarda-roupa suíte"],["PM-16","M09 Cabeceira"],["PM-17","M10 Gabinete lavabo"],["PM-18","M10 Gabinete suíte"]]],
+];
+const PERSP=[["cozinha-jantar.jpg","Cozinha / Jantar","Área social"],["sala-tv-sanca.jpg","Estar / Sala de TV","Sanca com LED"],["home-office-02.jpg","Home Office","Marcenaria"],["quarto-hospedes.jpg","Quarto de Hóspedes","Dormitório"],["quarto-suite.jpg","Suíte","Dormitório"],["banheiro-social.jpg","Banho Social","Revestimentos"],["banheiro-suite.jpg","Banho da Suíte","Revestimentos"]];
+let LB=[],lbIdx=0;
+function el(tag,cls,html){const d=document.createElement(tag);if(cls)d.className=cls;if(html)d.innerHTML=html;return d;}
+// pranchas grouped
 const gp=document.getElementById('galPranchas'); const LBp=[];
-PRANCHAS.forEach(p=>gp.appendChild(gcard(`assets/pranchas/${p[0]}.jpg`,p[0],p[1],p[2],LBp)));
+PR_GROUPS.forEach(([g,items])=>{
+  gp.appendChild(el('div','grouptitle',g));
+  const grid=el('div','gal');
+  items.forEach(([code,tit])=>{
+    const c=el('div','gcard'); const idx=LBp.length; LBp.push([`assets/pranchas/${code}.jpg`,`${code} — ${tit}`]);
+    c.innerHTML=`<img loading="lazy" src="assets/pranchas/${code}.jpg"><div class="cap"><span class="gtag">${code}</span><b>${tit}</b></div>`;
+    c.onclick=()=>openLb(LBp,idx); grid.appendChild(c);
+  });
+  gp.appendChild(grid);
+});
 const gv=document.getElementById('galPersp'); const LBv=[];
-PERSP.forEach(p=>gv.appendChild(gcard(`assets/perspectivas/${p[0]}`,'PERSPECTIVA',p[1],p[2],LBv)));
-
-function openLb(list,idx){LB=list;lbIdx=idx;render();document.getElementById('lb').classList.add('on');}
+PERSP.forEach(([fn,t,s])=>{const c=el('div','gcard');const idx=LBv.length;LBv.push([`assets/perspectivas/${fn}`,`${t} — ${s}`]);
+  c.innerHTML=`<img loading="lazy" src="assets/perspectivas/${fn}"><div class="cap"><span class="gtag">PERSPECTIVA</span><b>${t}</b><span>${s}</span></div>`;c.onclick=()=>openLb(LBv,idx);gv.appendChild(c);});
+function openLb(l,i){LB=l;lbIdx=i;render();document.getElementById('lb').classList.add('on');}
 function render(){document.getElementById('lbImg').src=LB[lbIdx][0];document.getElementById('lbCap').textContent=LB[lbIdx][1];}
 function stepLb(d,e){lbIdx=(lbIdx+d+LB.length)%LB.length;render();if(e)e.stopPropagation();}
 function closeLb(){document.getElementById('lb').classList.remove('on');}
 const lbEl=document.getElementById('lb');
 lbEl.addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
-document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('on'))return;
-  if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')stepLb(1);if(e.key==='ArrowLeft')stepLb(-1);});
-// swipe no celular
-let _tx=0,_ty=0;
-lbEl.addEventListener('touchstart',e=>{_tx=e.changedTouches[0].clientX;_ty=e.changedTouches[0].clientY;},{passive:true});
-lbEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-_tx,dy=e.changedTouches[0].clientY-_ty;
-  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))stepLb(dx<0?1:-1);},{passive:true});
-
-// tabelas roláveis no celular
-document.querySelectorAll('main table').forEach(t=>{
-  const w=document.createElement('div'); w.className='tscroll';
-  t.parentNode.insertBefore(w,t); w.appendChild(t);
-});
-
-// tabs
-function activate(t,scroll){
-  const b=document.querySelector(`#nav button[data-t="${t}"]`); if(!b)return;
-  document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); document.getElementById(t).classList.add('on');
-  history.replaceState(null,'','#'+t);
-  if(scroll)window.scrollTo({top:0,behavior:'smooth'});
-}
+document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('on'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')stepLb(1);if(e.key==='ArrowLeft')stepLb(-1);});
+let _tx=0,_ty=0;lbEl.addEventListener('touchstart',e=>{_tx=e.changedTouches[0].clientX;_ty=e.changedTouches[0].clientY;},{passive:true});
+lbEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-_tx,dy=e.changedTouches[0].clientY-_ty;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))stepLb(dx<0?1:-1);},{passive:true});
+function activate(t,scroll){const b=document.querySelector(`#nav button[data-t="${t}"]`);if(!b)return;
+  document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');document.getElementById(t).classList.add('on');history.replaceState(null,'','#'+t);if(scroll)window.scrollTo({top:0,behavior:'smooth'});}
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>activate(b.dataset.t,true));
-if(location.hash){activate(location.hash.slice(1),false);}
+if(location.hash)activate(location.hash.slice(1),false);
 </script>
-</body>
-</html>
+</body></html>
