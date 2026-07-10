@@ -67,7 +67,9 @@
   .spin:active{cursor:grabbing;} .spin img{width:100%;display:block;pointer-events:none;-webkit-user-drag:none;}
   .spinhint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12.5px;color:var(--grey);pointer-events:none;}
   .spinauto{position:absolute;top:14px;right:14px;background:var(--ink);color:#fff;border:0;width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;transition:.2s;}
-  .spinauto.on{background:var(--accent-d);} .spinbadge{position:absolute;top:14px;left:14px;background:rgba(26,26,28,.8);color:#fff;font-size:11px;font-weight:800;letter-spacing:.5px;padding:4px 9px;border-radius:5px;}
+  .spinauto.on{background:var(--accent-d);}
+  .cutbtn{position:absolute;top:14px;left:14px;z-index:2;background:rgba(26,26,28,.82);color:#fff;border:0;font-size:13px;font-weight:800;letter-spacing:.4px;padding:8px 14px;border-radius:22px;cursor:pointer;transition:.2s;}
+  .cutbtn.on{background:var(--accent-d);box-shadow:0 2px 10px rgba(158,125,61,.4);}
   footer{border-top:1px solid var(--hair);color:var(--grey);font-size:12.5px;text-align:center;padding:26px;}
 </style>
 </head>
@@ -225,14 +227,14 @@
 </section>
 
 <section class="tab" id="tresd">
-  <h1>3D — Vista sem laje</h1><div class="lead">Arraste na horizontal para girar o apartamento (vista "casa de bonecas", sem o teto). Apenas para visualização.</div>
+  <h1>3D — Modelo do apartamento</h1><div class="lead">Arraste na horizontal para girar. Use o botão <b>Cortar</b> para alternar entre o modelo fechado e a vista com o teto cortado.</div>
   <div class="spin card" id="spin">
-    <span class="spinbadge">SEM LAJE · 360°</span>
-    <img id="spinImg" src="assets/3d/frame_00.jpg" alt="Vista 3D do apartamento">
+    <button class="cutbtn" id="cutbtn" type="button">✂ Cortar</button>
+    <img id="spinImg" src="assets/3d/nc_00.jpg" alt="Vista 3D do apartamento">
     <button class="spinauto" id="spinauto" type="button" title="Girar automaticamente">⟳</button>
-    <div class="spinhint">↔ arraste para girar</div>
+    <div class="spinhint">↔ arraste para girar · ✂ cortar liga/desliga o teto</div>
   </div>
-  <div class="note" style="max-width:900px;margin:14px auto;">Modelo gerado a partir do projeto SketchUp (LAYOUT), com a laje/teto removida para visualização dos ambientes e da marcenaria. Imagem de referência — não substitui as pranchas técnicas.</div>
+  <div class="note" style="max-width:900px;margin:14px auto;">Modelo gerado a partir do projeto SketchUp (LAYOUT). Botão <b>Cortar</b>: alterna entre o volume fechado e a vista sem o teto (ambientes e marcenaria). Imagem de referência — não substitui as pranchas técnicas.</div>
 </section>
 
 </main>
@@ -274,11 +276,15 @@ lbEl.addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
 document.addEventListener('keydown',e=>{if(!lbEl.classList.contains('on'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')stepLb(1);if(e.key==='ArrowLeft')stepLb(-1);});
 let _tx=0,_ty=0;lbEl.addEventListener('touchstart',e=>{_tx=e.changedTouches[0].clientX;_ty=e.changedTouches[0].clientY;},{passive:true});
 lbEl.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-_tx,dy=e.changedTouches[0].clientY-_ty;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))stepLb(dx<0?1:-1);},{passive:true});
-// 3D spinner
-const N3D=24; let cur3d=0, dragging=false, startX=0, startI=0, auto3d=null;
+// 3D spinner (nc = sem corte / ct = cortado)
+const N3D=24; let cur3d=0, cutOn=false, dragging=false, startX=0, startI=0, auto3d=null;
 const spinImg=document.getElementById('spinImg'), spin=document.getElementById('spin');
-const imgs3d=[]; for(let i=0;i<N3D;i++){const im=new Image();im.src=`assets/3d/frame_${String(i).padStart(2,'0')}.jpg`;imgs3d.push(im);}
-function show3d(i){cur3d=((i%N3D)+N3D)%N3D;spinImg.src=imgs3d[cur3d].src;}
+const imgsNC=[], imgsCT=[];
+for(let i=0;i<N3D;i++){const p=String(i).padStart(2,'0');
+  const a=new Image();a.src=`assets/3d/nc_${p}.jpg`;imgsNC.push(a);
+  const b=new Image();b.src=`assets/3d/ct_${p}.jpg`;imgsCT.push(b);}
+function show3d(i){cur3d=((i%N3D)+N3D)%N3D;spinImg.src=(cutOn?imgsCT:imgsNC)[cur3d].src;}
+document.getElementById('cutbtn').onclick=()=>{cutOn=!cutOn;document.getElementById('cutbtn').classList.toggle('on',cutOn);show3d(cur3d);};
 function startAuto(){if(auto3d)return;auto3d=setInterval(()=>show3d(cur3d+1),110);document.getElementById('spinauto').classList.add('on');}
 function stopAuto(){if(auto3d){clearInterval(auto3d);auto3d=null;document.getElementById('spinauto').classList.remove('on');}}
 function dStart(x){dragging=true;startX=x;startI=cur3d;stopAuto();}
