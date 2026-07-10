@@ -41,6 +41,8 @@
   /* swatches */
   .sw{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
   .scard{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:var(--card);}
+  
+  .chip img{width:100%;height:100%;object-fit:cover;display:block;}
   .chip{height:110px;border-bottom:1px solid var(--hair);position:relative;}
   .scard .cc{padding:12px 14px;} .scard .cc .t{font-size:15px;font-weight:800;line-height:1.15;} .scard .cc .s{font-size:12.5px;color:var(--grey);margin-top:2px;}
   .scard .cc .q{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;color:var(--accent-d);background:var(--soft);padding:2px 9px;border-radius:12px;}
@@ -115,30 +117,30 @@
   <div class="note" style="border-left-color:var(--ink);background:#f0eee8;"><b>Antes de comprar.</b> As áreas e quantidades indicadas são de referência — as <b>medidas devem ser conferidas in loco</b> antes de fechar qualquer pedido. Ao longo da obra podem ser necessários <b>materiais além dos previstos</b> neste manual. Confira também a <b>amostra física</b> de cada material antes da compra, pois cores e texturas variam entre lotes e telas.</div>
   <h2>Pisos e revestimentos</h2>
   <div class="sw">
-    <div class="scard"><div class="chip t-porc"></div><div class="cc"><div class="t">Porcelanato 100×120</div><div class="s">Piso — áreas sociais</div><div class="q">37,00 m²</div></div></div>
-    <div class="scard"><div class="chip t-vinil"></div><div class="cc"><div class="t">Vinílico madeira</div><div class="s">Dormitórios · a definir ref.</div><div class="q">27,00 m²</div></div></div>
-    <div class="scard"><div class="chip t-cimento"></div><div class="cc"><div class="t">Cimento queimado</div><div class="s">Off white</div><div class="q">56,00 m²</div></div></div>
-    <div class="scard"><div class="chip t-frost"></div><div class="cc"><div class="t">Portobello Rimini Frost</div><div class="s">Banhos · 9,5×23</div><div class="q">16,00 m²</div></div></div>
-    <div class="scard"><div class="chip t-bright"></div><div class="cc"><div class="t">Strufaldi Rimini Bright</div><div class="s">Banhos · 6×24</div><div class="q">11,00 m²</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/porcelanato.jpg" alt=""></div><div class="cc"><div class="t">Porcelanato 100×100</div><div class="s">Piso — áreas sociais</div><div class="q">37,00 m²</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/vinilico.jpg" alt=""></div><div class="cc"><div class="t">Vinílico madeira</div><div class="s">Dormitórios · a definir ref.</div><div class="q">27,00 m²</div></div></div>
+    
+    <div class="scard"><div class="chip"><img src="assets/materiais/portobello-frost.jpg" alt=""></div><div class="cc"><div class="t">Portobello Rimini Frost</div><div class="s">Banhos · 9,5×23</div><div class="q">16,00 m²</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/strufaldi.jpg" alt=""></div><div class="cc"><div class="t">Strufaldi Rimini Bright</div><div class="s">Banhos · 6×24</div><div class="q">11,00 m²</div></div></div>
   </div>
   <h2>Pedras — bancadas · perfil SLIM</h2>
   <div class="sw">
-    <div class="scard"><div class="chip t-quartzo"><span class="slim">PERFIL SLIM</span></div><div class="cc"><div class="t">Quartzo Branco</div><div class="s">Cozinha · serviço · varanda</div></div></div>
-    <div class="scard"><div class="chip t-pitaya"><span class="slim">PERFIL SLIM</span></div><div class="cc"><div class="t">Branco Pitaya</div><div class="s">Banho social · banho suíte</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/quartzo-branco.jpg" alt=""><span class="slim">PERFIL SLIM</span></div><div class="cc"><div class="t">Quartzo Branco</div><div class="s">Cozinha · serviço · varanda</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/branco-pitaya.jpg" alt=""><span class="slim">PERFIL SLIM</span></div><div class="cc"><div class="t">Branco Pitaya</div><div class="s">Banho social · banho suíte</div></div></div>
   </div>
   <h2>MDF — marcenaria</h2>
   <div class="sw">
-    <div class="scard"><div class="chip t-azul"></div><div class="cc"><div class="t">Azul</div><div class="s">Duratex · Azul Astral</div></div></div>
-    <div class="scard"><div class="chip t-branco"></div><div class="cc"><div class="t">Branco</div><div class="s">Duratex · Branco Diamante Essential</div></div></div>
-    <div class="scard"><div class="chip t-cumaru"></div><div class="cc"><div class="t">Madeirado</div><div class="s">Duratex · Cumaru Raiz</div></div></div>
-    <div class="scard"><div class="chip t-jalapao"></div><div class="cc"><div class="t">Terracota</div><div class="s">Arauco · Jalapão</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-azul.jpg" alt=""></div><div class="cc"><div class="t">Azul</div><div class="s">Duratex · Azul Astral</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-branco.jpg" alt=""></div><div class="cc"><div class="t">Branco</div><div class="s">Duratex · Branco Diamante Essential</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-cumaru.jpg" alt=""></div><div class="cc"><div class="t">Madeirado</div><div class="s">Duratex · Cumaru Raiz</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-jalapao.jpg" alt=""></div><div class="cc"><div class="t">Terracota</div><div class="s">Arauco · Jalapão</div></div></div>
   </div>
   <div class="note"><b>Puxadores:</b> MDF madeirado → puxador <b>cava</b>. MDF Branco, Azul ou Terracota → puxador <b>metálico preto</b>.</div>
   <h2>Pinturas</h2>
   <div class="sw">
     <div class="scard"><div class="chip t-neve" style="height:70px"></div><div class="cc"><div class="t">Branco Neve</div><div class="q">99,00 m²</div></div></div>
-    <div class="scard"><div class="chip t-trigo" style="height:70px"></div><div class="cc"><div class="t">Trigo · Duvmil</div><div class="q">77,00 m²</div></div></div>
-    <div class="scard"><div class="chip t-cimento" style="height:70px"></div><div class="cc"><div class="t">Cimento queimado</div><div class="q">56,00 m²</div></div></div>
+    <div class="scard"><div class="chip t-trigo" style="height:70px"></div><div class="cc"><div class="t">Trigo · Suvinil</div><div class="q">77,00 m²</div></div></div>
+    <div class="scard"><div class="chip" style="height:70px"><img src="assets/materiais/cimento-queimado.jpg" alt=""></div><div class="cc"><div class="t">Cimento queimado</div><div class="q">56,00 m²</div></div></div>
   </div>
   <h2>Acabamentos metálicos <span style="color:var(--grey);font-weight:700">(PR-08)</span></h2>
   <div class="tscroll"><table>
@@ -197,10 +199,10 @@
   <h1>Marcenaria</h1><div class="lead">18 pranchas (M01–M10). MDF especificado por móvel e regra de puxadores.</div>
   <h2>MDF especificado</h2>
   <div class="sw">
-    <div class="scard"><div class="chip t-azul"></div><div class="cc"><div class="t">Azul</div><div class="s">Duratex · Azul Astral</div></div></div>
-    <div class="scard"><div class="chip t-branco"></div><div class="cc"><div class="t">Branco</div><div class="s">Duratex · Branco Diamante Essential</div></div></div>
-    <div class="scard"><div class="chip t-cumaru"></div><div class="cc"><div class="t">Madeirado</div><div class="s">Duratex · Cumaru Raiz</div></div></div>
-    <div class="scard"><div class="chip t-jalapao"></div><div class="cc"><div class="t">Terracota</div><div class="s">Arauco · Jalapão</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-azul.jpg" alt=""></div><div class="cc"><div class="t">Azul</div><div class="s">Duratex · Azul Astral</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-branco.jpg" alt=""></div><div class="cc"><div class="t">Branco</div><div class="s">Duratex · Branco Diamante Essential</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-cumaru.jpg" alt=""></div><div class="cc"><div class="t">Madeirado</div><div class="s">Duratex · Cumaru Raiz</div></div></div>
+    <div class="scard"><div class="chip"><img src="assets/materiais/mdf-jalapao.jpg" alt=""></div><div class="cc"><div class="t">Terracota</div><div class="s">Arauco · Jalapão</div></div></div>
   </div>
   <div class="note"><b>Puxadores:</b> madeirado → <b>cava</b>; Branco, Azul ou Terracota → <b>metálico preto</b>.</div>
   <h2>Móveis</h2>
